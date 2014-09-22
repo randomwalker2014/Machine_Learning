@@ -178,7 +178,7 @@ confusionMatrixRF
 
 Application of the final model against the Validation Data Set making sure to apply the same preprocessing rules to the validation data set
 
-```{r result,echo=TRUE,cache=FALSE,message=FALSE}
+```{r result}
 
 # Apply same pre-processing rules applied to Training data set
 validationData <- prepare.data(validationData)
