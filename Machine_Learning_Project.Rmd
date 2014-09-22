@@ -164,9 +164,9 @@ genRandomForestPlots <- function(data,outcomeVarIdx,model){
 genRandomForestPlots(pmlDataTrain,53,randomForestFit)
 ```
 
-### Conclusion
+### Final Model and Results
 
-The complete results for the final model are below
+The complete metrics for the final model are below
 
 ```{r confusionMatrix, echo=TRUE,cache=FALSE,message=FALSE}
 # Report the entire Confusion Matrix Table and OOB for Random Forest model
@@ -176,7 +176,25 @@ randomForestFit
 confusionMatrixRF
 ```
 
-Random Forest classifier algorithm was chosen for classifiying the classe outcome variable that gave high level of prediction accuracy for the validation data set.
+Application of the final model against the Validation Data Set making sure to apply the same preprocessing rules to the validation data set
+
+```{r result,echo=TRUE,cache=FALSE,message=FALSE}
+
+# Apply same pre-processing rules applied to Training data set
+validationData <- prepare.data(validationData)
+
+
+# Predict Classe variable using the Random Forest model 
+result <- predict(randomForestFit,validationData)
+
+# Display prediction results
+
+result
+
+```
+
+Random Forest classifier algorithm was chosen for classifiying the classe outcome variable that gave high level of prediction accuracy for the validation data set. The predicted values matched all observed values for the validation dataset.
+
 
 
 
